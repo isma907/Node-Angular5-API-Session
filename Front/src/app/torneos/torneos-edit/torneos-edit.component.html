@@ -1,0 +1,58 @@
+<mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
+<div class="row">
+  <div class="col">
+    <form class="userForm" name="torneoForm">
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="card">
+            <img *ngIf="torneo?.Modalidad == '1 vs 1'" class="card-img-top" src="assets/img/1player.jpg" alt="Card image cap">
+            <img *ngIf="torneo?.Modalidad == '2 vs 2'" class="card-img-top" src="assets/img/2players.jpg" alt="Card image cap">
+          </div>
+        </div>
+
+        <div class="col-md-9">
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="torneo.Nombre" name="nombre_torneo">
+
+            <!-- <mat-form-field class="inputForm">
+              <input matInput [(ngModel)]="torneo.Nombre" name="nombre_torneo" placeholder="Nombre" required>
+            </mat-form-field> -->
+          </div>
+          <div class="form-group">
+            <select class="form-control" [(ngModel)]="torneo.Modalidad" name="modalidad" required>
+              <option value="">Seleccione modalidad</option>
+              <option value="1 vs 1">1 vs 1</option>
+              <option value="2 vs 2">2 vs 2</option>
+            </select>
+            <!-- <mat-form-field class="inputForm">
+              <mat-select [(ngModel)]="torneo.Modalidad" name="modo" placeholder="Modalidad" required>
+                <mat-option value="1 vs 1">1 vs 1</mat-option>
+                <mat-option value="2 vs 2">2 vs 2</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+          </div>
+
+          <div *ngIf="torneo?._id">
+            <button class="btn btn-success" (click)="updateTorneo(torneo)">
+              <i class="material-icons">save</i> Guardar
+            </button>
+
+
+            <button class="btn btn-danger" (click)="deleteTorneo(torneo)">
+              <i class="material-icons">delete</i>
+            </button>
+          </div>
+
+          <div *ngIf="!torneo?._id">
+            <button class="btn btn-primary" (click)="addTorneo()">
+              <i class="material-icons">add</i> Agregar
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

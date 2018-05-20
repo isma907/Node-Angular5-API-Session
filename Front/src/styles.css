@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "./normalize.css";*/
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; 
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "https://bootswatch.com/4/materia/bootstrap.min.css";
+
+body{
+    background: url("assets/img/bg.png")top center no-repeat;
+}
+.card.dark{
+    background: #6c757d!important
+}
