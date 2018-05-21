@@ -59,7 +59,7 @@ export class UserEditComponent implements OnInit {
       data => {
         this.loading = false;
         this.openSnackBar(this.usuario.Nombre, "Eliminado")
-        this.router.navigate(['usuarios']);
+        this.router.navigate(['users']);
       }
     )
   }
@@ -71,7 +71,7 @@ export class UserEditComponent implements OnInit {
         this.usuario["_id"] = data["_id"]
         this.loading = false;
         this.openSnackBar(this.usuario.Nombre, "Agregado")
-        this.router.navigate(['usuarios/edit/' + this.usuario["_id"]]);
+        this.router.navigate(['users/edit/' + this.usuario["_id"]]);
       }
     )
   }
