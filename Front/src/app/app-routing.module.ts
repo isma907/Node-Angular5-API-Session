@@ -8,40 +8,48 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 import { TorneosComponent } from './torneos/torneos.component';
 import { TorneosEditComponent } from './torneos/torneos-edit/torneos-edit.component';
-
+import { AuthGuard } from './auth/auth.guard'
 
 const routes: Routes = [
     {
         path: "login",
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "",
-        component: UsersComponent
+        component: UsersComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "users",
         component: UsersComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "users/edit/:id",
-        component: UserEditComponent
+        component: UserEditComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "users/add",
-        component: UserEditComponent
+        component: UserEditComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "torneos",
-        component: TorneosComponent
+        component: TorneosComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "torneos/add",
-        component: TorneosEditComponent
+        component: TorneosEditComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "torneos/edit/:id",
-        component: TorneosEditComponent
+        component: TorneosEditComponent,
+        canActivate: [AuthGuard]
     },
 
 ];
