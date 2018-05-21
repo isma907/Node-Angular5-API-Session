@@ -5,8 +5,8 @@ import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 
-import { ContactosComponent } from './contactos/contactos.component';
-import { ContactoEditComponent } from './contactos/contacto-edit/contacto-edit.component'
+import { UsersComponent } from './users/users.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component'
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,8 +20,8 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContactosComponent,
-    ContactoEditComponent,
+    UsersComponent,
+    UserEditComponent,
     TorneosComponent,
     TorneosEditComponent,
     LoginComponent,

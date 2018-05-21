@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 
-import { ContactosComponent } from './contactos/contactos.component';
-import { ContactoEditComponent } from './contactos/contacto-edit/contacto-edit.component';
+import { UsersComponent } from './users/users.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 import { TorneosComponent } from './torneos/torneos.component';
 import { TorneosEditComponent } from './torneos/torneos-edit/torneos-edit.component';
@@ -17,19 +17,19 @@ const routes: Routes = [
     },
     {
         path: "",
-        component: ContactosComponent
+        component: UsersComponent
     },
     {
-        path: "contactos",
-        component: ContactosComponent,
+        path: "users",
+        component: UsersComponent,
     },
     {
-        path: "contactos/edit/:id",
-        component: ContactoEditComponent
+        path: "users/edit/:id",
+        component: UserEditComponent
     },
     {
-        path: "contactos/add",
-        component: ContactoEditComponent
+        path: "users/add",
+        component: UserEditComponent
     },
     {
         path: "torneos",

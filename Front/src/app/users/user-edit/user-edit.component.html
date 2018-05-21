@@ -5,35 +5,35 @@
       <div class="row">
         <div class="col-md-3">
           <div class="card">
-            <img src="{{contacto.Imagen}}" class="img-fluid">
+            <img src="{{usuario.Imagen}}" class="img-fluid">
           </div>
         </div>
         <div class="col-xs-12 col-md-9">
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="contacto.Imagen" name="Imagen" placeholder="Imagen" required>
+            <input class="form-control" [(ngModel)]="usuario.Imagen" name="Imagen" placeholder="Imagen" required>
           </div>
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="contacto.Username" name="Alias" placeholder="Alias" required>
+            <input class="form-control" [(ngModel)]="usuario.Username" name="Alias" placeholder="Alias" required>
           </div>
 
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="contacto.Nombre" name="nombre" placeholder="Nombre" required>
+            <input class="form-control" [(ngModel)]="usuario.Nombre" name="nombre" placeholder="Nombre" required>
           </div>
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="contacto.Apellido" name="apellido" placeholder="Apellido" required>
+            <input class="form-control" [(ngModel)]="usuario.Apellido" name="apellido" placeholder="Apellido" required>
           </div>
 
-          <div *ngIf="contacto?._id" class="btn-group">
-            <button class="btn btn-succcess" (click)="updateUser(contacto)">
+          <div *ngIf="usuario?._id" class="btn-group">
+            <button class="btn btn-succcess" (click)="updateUser(usuario)">
               <i class="material-icons">save</i> Guardar
             </button>
 
-            <button class="btn btn-danger" (click)="deleteUser(contacto)">
+            <button class="btn btn-danger" (click)="deleteUser(usuario)">
               <i class="material-icons">delete</i>
             </button>
           </div>
 
-          <div *ngIf="!contacto?._id">
+          <div *ngIf="!usuario?._id">
             <button class="btn" (click)="addUser()">
               <i class="material-icons">add</i> Agregar
             </button>

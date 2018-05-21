@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contacto } from "../models/contacto"
-import { UsersService } from '../services/users.service'
+import { User } from "../models/user"
+import { UserService } from '../services/users.service'
 
 @Component({
   selector: 'app-login',
@@ -8,16 +8,16 @@ import { UsersService } from '../services/users.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  contacto = new Contacto();
+  usuario = new User();
   constructor(
-    private _UserService: UsersService
+    private _UserService: UserService
   ) { }
 
   ngOnInit() {
   }
 
   loginUser = function () {
-    this._UserService.loginUser(this.contacto).subscribe(
+    this._UserService.loginUser(this.usuario).subscribe(
       data => {
       })
   }

@@ -1,38 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Contacto } from '../models/contacto'
+import { User } from '../models/user'
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
   private _apiUrl = "http://localhost:3000/api/users"
   constructor(private http: HttpClient) { }
 
-  loginUser(contacto): Observable<Contacto[]> {
-    return this.http.post<Contacto[]>(this._apiUrl + '/Login/', contacto)
+  loginUser(user): Observable<User[]> {
+    return this.http.post<User[]>(this._apiUrl + '/Login/', user)
   }
 
-  getUsers(): Observable<Contacto[]> {
-    return this.http.get<Contacto[]>(this._apiUrl)
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this._apiUrl)
   }
 
-  addUser(contacto): Observable<Contacto[]> {
-    return this.http.post<Contacto[]>(this._apiUrl + '/addUser/', contacto)
+  addUser(user): Observable<User[]> {
+    return this.http.post<User[]>(this._apiUrl + '/addUser/', user)
   }
 
-  deleteUser(contacto): Observable<Contacto[]> {
-    return this.http.delete<Contacto[]>(this._apiUrl + '/deleteUser/' + contacto['_id'])
+  deleteUser(user): Observable<User[]> {
+    return this.http.delete<User[]>(this._apiUrl + '/deleteUser/' + user['_id'])
   }
 
-  getUserById(id): Observable<Contacto[]> {
-    return this.http.get<Contacto[]>(this._apiUrl + '/getUserById/' + id)
+  getUserById(id): Observable<User[]> {
+    return this.http.get<User[]>(this._apiUrl + '/getUserById/' + id)
   }
 
-  updateUser(contacto: Contacto): Observable<Contacto[]> {
-    return this.http.put<Contacto[]>(this._apiUrl + '/updateUser/' + contacto['_id'], contacto)
+  updateUser(user: User): Observable<User[]> {
+    return this.http.put<User[]>(this._apiUrl + '/updateUser/' + user['_id'], user)
   }
 }
 

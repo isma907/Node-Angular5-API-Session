@@ -1,4 +1,4 @@
-export class Contacto {
+export class User {
     id?: string;
     Nombre?: string;
     Apellido?: string

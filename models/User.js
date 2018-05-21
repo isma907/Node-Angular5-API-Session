@@ -11,7 +11,7 @@ var userSchema = mongoose.Schema({
     Apellido: {
         type: String,
     },
-    Alias: {
+    Username: {
         type: String,
     },
     password: {
