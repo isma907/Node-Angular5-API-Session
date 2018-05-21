@@ -12,11 +12,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   loginUser(user): Observable<User[]> {
-    return this.http.post<User[]>(this._apiUrl + '/Login/', user)
+    return this.http.post<User[]>(this._apiUrl + '/Login/', user, { withCredentials: true })
   }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this._apiUrl)
+    return this.http.get<User[]>(this._apiUrl, { withCredentials: true })
   }
 
   addUser(user): Observable<User[]> {
