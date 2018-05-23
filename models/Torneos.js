@@ -1,12 +1,12 @@
 var mongoose = require("mongoose");
 
 var torneoSchema = mongoose.Schema({
-    _id: { type: String },
-    nombre: {
+    _id: { type: mongoose.Schema.Types.ObjectId },
+    Nombre: {
         type: String,
         required: true
     },
-    modalidad: {
+    Modalidad: {
         type: String,
         required: true
     }

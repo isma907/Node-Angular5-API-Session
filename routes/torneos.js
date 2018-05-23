@@ -21,8 +21,9 @@ router.get("/getTorneoById/:id", (req, res, next) => {
 
 router.post("/addTorneo", (req, res, next) => {
     const torneo = req.body;
+    torneo._id = mongoose.mongo.ObjectId();
     console.log(torneo)
-    db.torneos.save(torneo, (err, torneo) => {
+    Torneo.create(torneo, (err, torneo) => {
         if (err) return next(err);
         res.json(torneo)
     })
