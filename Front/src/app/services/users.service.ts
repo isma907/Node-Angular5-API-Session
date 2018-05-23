@@ -4,26 +4,24 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user'
 import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
+
+interface isLoggedIn {
+  status: boolean
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   private _apiUrl = "http://localhost:3000/api/users"
   constructor(private http: HttpClient,
     private route: Router) { }
 
-
   options = { withCredentials: true }
 
-  isAuthenticated() {
-    return this.http.get(this._apiUrl + '/checkAuth/', this.options).subscribe(data => {
-      if (data) {
-        return true;
-      }
-      else {
-        this.route.navigate["/login"]
-      }
-    });
+  isLoggedIn(): Observable<isLoggedIn> {
+    return this.http.get<isLoggedIn>(this._apiUrl + '/checkAuth/', this.options)
   }
 
   loginUser(user): Observable<User[]> {

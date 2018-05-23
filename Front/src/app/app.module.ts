@@ -17,6 +17,12 @@ import { TorneosComponent } from './torneos/torneos.component';
 import { TorneosEditComponent } from './torneos/torneos-edit/torneos-edit.component';
 import { LoginComponent } from './login/login.component';
 
+
+//Services
+import { AuthService } from './services/auth.service'
+import { UserService } from './services/users.service'
+import { AuthGuard } from './auth/auth.guard'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +42,7 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [UserService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
