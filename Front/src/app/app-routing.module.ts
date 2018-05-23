@@ -7,13 +7,15 @@ import { UsersComponent } from './users/users.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 import { TorneosComponent } from './torneos/torneos.component';
+import { FixtureComponent } from './torneos/fixture/fixture.component';
 import { TorneosEditComponent } from './torneos/torneos-edit/torneos-edit.component';
 import { AuthGuard } from './auth/auth.guard'
 
 const routes: Routes = [
     {
         path: "login",
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: "",
@@ -38,6 +40,11 @@ const routes: Routes = [
     {
         path: "torneos",
         component: TorneosComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "fixture/:id",
+        component: FixtureComponent,
         canActivate: [AuthGuard]
     },
     {

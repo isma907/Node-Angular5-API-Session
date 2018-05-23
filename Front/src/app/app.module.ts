@@ -21,7 +21,8 @@ import { LoginComponent } from './login/login.component';
 //Services
 import { AuthService } from './services/auth.service'
 import { UserService } from './services/users.service'
-import { AuthGuard } from './auth/auth.guard'
+import { AuthGuard } from './auth/auth.guard';
+import { FixtureComponent } from './torneos/fixture/fixture.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AuthGuard } from './auth/auth.guard'
     TorneosComponent,
     TorneosEditComponent,
     LoginComponent,
+    FixtureComponent,
   ],
   imports: [
     BrowserModule,
