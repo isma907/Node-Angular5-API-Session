@@ -1,6 +1,4 @@
 const router = require("express").Router();
-//const mongojs = require("mongojs");
-//const db = mongojs("mongo-test", ["torneos"])
 const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/mongo-test');
 const Torneo = require("../models/Torneos")
@@ -31,7 +29,7 @@ router.post("/addTorneo", (req, res, next) => {
 
 router.delete("/deleteTorneo/:id", (req, res, next) => {
     const torneo = req.body;
-    Torneo.remove({ _id: mongojs.ObjectId(req.params.id) }, (err, torneo) => {
+    Torneo.remove({ _id: req.params.id }, (err, torneo) => {
         if (err) return next(err);
         res.json(torneo)
     })
@@ -40,10 +38,23 @@ router.delete("/deleteTorneo/:id", (req, res, next) => {
 router.put("/updateTorneo/:id", (req, res, next) => {
     const torneo = req.body;
     delete torneo["_id"];
-    Torneo.update({ _id: mongojs.ObjectId(req.params.id) }, torneo, {}, (err, torneo) => {
+    Torneo.update({ _id: req.params.id }, torneo, {}, (err, torneo) => {
         if (err) return next(err);
         res.json(torneo)
     })
+})
+
+router.put("/TorneoAddPlayer/:id", (req, res, next) => {
+    const playerId = req.session.user;
+    const torneoId = req.params.id;
+    Torneo.update(
+        { _id: torneoId },
+        {
+            $addToSet: { _uid: playerId }
+        }, (err, torneo) => {
+            if (err) return next(err);
+            res.json(torneo)
+        })
 })
 
 

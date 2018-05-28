@@ -9,7 +9,7 @@ const app = express();
 app.use(session({
     secret: 'work hard',
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: true
 }));
 
 //ROUTES

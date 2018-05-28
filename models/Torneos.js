@@ -9,7 +9,12 @@ var torneoSchema = mongoose.Schema({
     Modalidad: {
         type: String,
         required: true
-    }
+    },
+    _uid: [
+        {
+            type: mongoose.Schema.Types.ObjectId
+        }
+    ]
 })
 
 var Torneo = module.exports = mongoose.model('Torneo', torneoSchema)

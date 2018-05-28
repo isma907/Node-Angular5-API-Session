@@ -47,7 +47,7 @@ router.post("/Login", (req, res, next) => {
                 Apellido: user.Apellido,
             };
             req.session.user = userSession;
-            return next(res.send(userSession));
+            return next(res.json(userSession));
         }
     });
 })

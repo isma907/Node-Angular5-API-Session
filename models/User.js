@@ -17,7 +17,7 @@ var userSchema = mongoose.Schema({
     },
     Password: {
         type: String,
-    },
+    }
 })
 
 

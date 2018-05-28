@@ -19,7 +19,8 @@
         <h5 class="card-title">{{torneo.Nombre}}</h5>
         <div class="btn-group" role="group" aria-label="Basic example">
           <button routerLink="/torneos/edit/{{torneo['_id']}}" class="btn btn-default">Editar</button>
-          <button routerLink="" class="btn btn-danger">Eliminar</button>
+          <button routerLink="/fixture/{{torneo['_id']}}" class="btn btn-success">Ver</button>
+          <button class="btn btn-info" (click)="TorneoAddPlayer(torneo['_id'])">Participar</button>
         </div>
       </div>
     </div>

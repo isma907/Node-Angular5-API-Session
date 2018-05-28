@@ -10,8 +10,12 @@ import { Torneo } from '../models/torneo'
 export class TorneosService {
   private _apiUrl = "http://localhost:3000/api/torneos"
   constructor(private http: HttpClient) { }
+
+  options = { withCredentials: true }
+
+
   getTorneos(): Observable<Torneo[]> {
-    return this.http.get<Torneo[]>(this._apiUrl)
+    return this.http.get<Torneo[]>(this._apiUrl, this.options)
   }
 
   addTorneo(torneo): Observable<Torneo[]> {
@@ -28,6 +32,10 @@ export class TorneosService {
 
   updateTorneo(torneo: Torneo): Observable<Torneo[]> {
     return this.http.put<Torneo[]>(this._apiUrl + '/updateTorneo/' + torneo['_id'], torneo)
+  }
+
+  TorneoAddPlayer(torneoId) {
+    return this.http.put<Torneo[]>(this._apiUrl + '/TorneoAddPlayer/' + torneoId, this.options)
   }
 }
 
