@@ -35,7 +35,7 @@ export class TorneosService {
   }
 
   TorneoAddPlayer(torneoId) {
-    return this.http.put<Torneo[]>(this._apiUrl + '/TorneoAddPlayer/' + torneoId, this.options)
+    return this.http.put<Torneo[]>(this._apiUrl + '/TorneoAddPlayer/' + torneoId,{}, this.options)
   }
 }
 

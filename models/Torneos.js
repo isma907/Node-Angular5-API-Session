@@ -10,7 +10,7 @@ var torneoSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    _uid: [
+    participantes: [
         {
             type: mongoose.Schema.Types.ObjectId
         }

@@ -42,6 +42,7 @@ router.post("/Login", (req, res, next) => {
             return next(err);
         } else {
             const userSession = {
+                id: user._id,
                 Username: user.Username,
                 Nombre: user.Nombre,
                 Apellido: user.Apellido,

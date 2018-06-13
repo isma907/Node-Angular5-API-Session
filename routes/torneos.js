@@ -45,13 +45,14 @@ router.put("/updateTorneo/:id", (req, res, next) => {
 })
 
 router.put("/TorneoAddPlayer/:id", (req, res, next) => {
-    const playerId = req.session.user;
+    const playerId = req.session.user.id;
     const torneoId = req.params.id;
     Torneo.update(
         { _id: torneoId },
         {
-            $addToSet: { _uid: playerId }
-        }, (err, torneo) => {
+            $addToSet: { 'participantes': playerId }
+        },
+        (err, torneo) => {
             if (err) return next(err);
             res.json(torneo)
         })

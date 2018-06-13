@@ -29,7 +29,7 @@ export class TorneosComponent implements OnInit {
     )
   }
 
-
+  
   TorneoAddPlayer = function (torneoId) {
     this._TorneosService.TorneoAddPlayer(torneoId).subscribe(
       data => {
