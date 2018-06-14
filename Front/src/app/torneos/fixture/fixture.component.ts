@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/users.service'
+import { TorneosService } from '../../services/torneos.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-fixture',
@@ -10,19 +11,21 @@ export class FixtureComponent implements OnInit {
 
   loading = true;
   usuarios = []
-
+  id = "";
   constructor(
-    private _UserService: UserService,
+    private _TorneosService: TorneosService,
+    public router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.loadUsers(this.id);
   }
 
-  loadUsers = function () {
-    this._UserService.getUsers().subscribe(
+  loadUsers = function (id) {
+    this._TorneosService.getParticipantes(id).subscribe(
       data => {
-        this.usuarios = data
         this.loading = false;
       },
       error => {

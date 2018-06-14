@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var User = require("./User");
 
 var torneoSchema = mongoose.Schema({
     _id: { type: mongoose.Schema.Types.ObjectId },
@@ -10,11 +11,9 @@ var torneoSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    participantes: [
-        {
-            type: mongoose.Schema.Types.ObjectId
-        }
-    ]
+    partic: {
+        type: Array
+    }
 })
 
 var Torneo = module.exports = mongoose.model('Torneo', torneoSchema)

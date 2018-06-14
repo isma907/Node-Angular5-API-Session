@@ -30,6 +30,10 @@ export class TorneosService {
     return this.http.get<Torneo[]>(this._apiUrl + '/getTorneoById/' + id)
   }
 
+  getParticipantes(id): Observable<Torneo[]> {
+    return this.http.get<Torneo[]>(this._apiUrl + '/getParticipantes/' + id)
+  }
+
   updateTorneo(torneo: Torneo): Observable<Torneo[]> {
     return this.http.put<Torneo[]>(this._apiUrl + '/updateTorneo/' + torneo['_id'], torneo)
   }
